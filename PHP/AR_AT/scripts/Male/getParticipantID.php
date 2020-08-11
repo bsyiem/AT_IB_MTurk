@@ -13,7 +13,7 @@
 	fclose($file);
 	*/
 	
-	if(($file = fopen("../files/last_pid.csv","r")) !== FALSE)
+	if(($file = fopen("../../files/Male/last_pid.csv","r")) !== FALSE)
 	{
 		//using an exclusive lock instead of a shared lock as I only want pid to be unique
 		if(flock($file, LOCK_EX))

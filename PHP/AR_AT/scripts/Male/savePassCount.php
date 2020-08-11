@@ -6,7 +6,7 @@
 	$countType = $_POST["countType"];
 	
 	
-	if(($file = fopen("../files/".$folderName."/".$fileName.".csv", "a")) !==FALSE){
+	if(($file = fopen("../../files/Male/".$folderName."/".$fileName.".csv", "a")) !==FALSE){
 		if(flock($file,LOCK_EX)){
 			fputcsv($file, array($passCount,$countType));
 		}else{

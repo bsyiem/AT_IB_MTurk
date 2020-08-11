@@ -5,6 +5,14 @@ using UnityEngine.Networking;
 
 public class PHPCommunicationManager : MonoBehaviour
 {
+    public enum Gender
+    {
+        Male,
+        Female
+    };
+
+    public Gender buildGender = Gender.Male; 
+
     private static PHPCommunicationManager _instance;
 
     private static string SERVER = "http://localhost/AR_AT";
@@ -36,8 +44,10 @@ public class PHPCommunicationManager : MonoBehaviour
         
     }
 
+
     //read previous partocipant number
     //this is used to alternate starting event type
+    /*
     public string getLastParticipantNumber()
     {
         string pid = "";
@@ -45,14 +55,13 @@ public class PHPCommunicationManager : MonoBehaviour
         {
             uwr.SendWebRequest();
 
-            /*
+            
             WaitForSeconds w;
             while (!uwr.isDone)
             {
                 w = new WaitForSeconds(0.1f);
             }
-            */
-
+           
             if (uwr.isNetworkError)
             {
                 Debug.Log("error");
@@ -66,13 +75,12 @@ public class PHPCommunicationManager : MonoBehaviour
             Debug.Log("response = " + pid.Length);
             return pid;
         }
-
-        //StartCoroutine(GetRequestCoroutine(SERVER + "/getParticipantID.php"));
     }
+    */
 
     public IEnumerator GetPID(InstructionController instructionController)
     {
-        using (UnityWebRequest uwr = UnityWebRequest.Get(SERVER + "/scripts/getParticipantID.php"))
+        using (UnityWebRequest uwr = UnityWebRequest.Get(SERVER + "/scripts/"+buildGender.ToString()+"/getParticipantID.php"))
         {
             uwr.SendWebRequest();
             while (!uwr.isDone)
@@ -101,7 +109,7 @@ public class PHPCommunicationManager : MonoBehaviour
 
         form.AddField("pId", id.ToString());
 
-        StartCoroutine(PostForm(SERVER + "/scripts/setParticipantID.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/setParticipantID.php", form));
 
     }
 
@@ -117,7 +125,7 @@ public class PHPCommunicationManager : MonoBehaviour
             }
             else
             {
-                //Debug.Log(uwr.downloadHandler.text);
+                Debug.Log(uwr.downloadHandler.text);
             }
         }
     }
@@ -141,7 +149,7 @@ public class PHPCommunicationManager : MonoBehaviour
         form.AddField("fileName", fileName);
         form.AddField("folderName", folderName);
 
-        StartCoroutine(PostForm(SERVER + "/scripts/saveReactionTime.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/saveReactionTime.php", form));
     }
 
 
@@ -158,7 +166,7 @@ public class PHPCommunicationManager : MonoBehaviour
         form.AddField("fileName", fileName);
         form.AddField("folderName", folderName);
 
-        StartCoroutine(PostForm(SERVER + "/scripts/savePassCount.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/savePassCount.php", form));
     }
 
 
@@ -172,6 +180,6 @@ public class PHPCommunicationManager : MonoBehaviour
         form.AddField("pid", pid);
         form.AddField("code", generatedCode);
 
-        StartCoroutine(PostForm(SERVER + "/scripts/saveParticipantCode.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/saveParticipantCode.php", form));
     }
 }

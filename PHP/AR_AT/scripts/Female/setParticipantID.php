@@ -3,7 +3,7 @@
 	$pId = $_POST["pId"];
 
 	if($pId !== ""){
-		if(($file = fopen("../files/last_pid.csv","w")) !== FALSE){
+		if(($file = fopen("../../files/Female/last_pid.csv","w")) !== FALSE){
 			if(flock($file,LOCK_EX)){
 				fputcsv($file,array($pId));
 			}else{
