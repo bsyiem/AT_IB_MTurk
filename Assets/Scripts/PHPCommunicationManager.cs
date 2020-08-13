@@ -5,17 +5,20 @@ using UnityEngine.Networking;
 
 public class PHPCommunicationManager : MonoBehaviour
 {
-    public enum Gender
+    //determines where the records will be stored on the server
+    public enum BuildType
     {
         Male,
-        Female
+        Female,
+        Pilot
     };
 
-    public Gender buildGender = Gender.Male; 
+    public BuildType buildType = BuildType.Male; 
 
     private static PHPCommunicationManager _instance;
 
-    private static string SERVER = "http://localhost/AR_AT";
+    //private static string SERVER = "http://localhost/AR_AT";
+    private static string SERVER = "https://ar-attention.cis.unimelb.edu.au/";
 
 
     private void Awake()
@@ -80,7 +83,7 @@ public class PHPCommunicationManager : MonoBehaviour
 
     public IEnumerator GetPID(InstructionController instructionController)
     {
-        using (UnityWebRequest uwr = UnityWebRequest.Get(SERVER + "/scripts/"+buildGender.ToString()+"/getParticipantID.php"))
+        using (UnityWebRequest uwr = UnityWebRequest.Get(SERVER + "/scripts/"+buildType.ToString()+"/getParticipantID.php"))
         {
             uwr.SendWebRequest();
             while (!uwr.isDone)
@@ -109,7 +112,7 @@ public class PHPCommunicationManager : MonoBehaviour
 
         form.AddField("pId", id.ToString());
 
-        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/setParticipantID.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildType.ToString()+"/setParticipantID.php", form));
 
     }
 
@@ -149,7 +152,7 @@ public class PHPCommunicationManager : MonoBehaviour
         form.AddField("fileName", fileName);
         form.AddField("folderName", folderName);
 
-        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/saveReactionTime.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildType.ToString()+"/saveReactionTime.php", form));
     }
 
 
@@ -166,7 +169,7 @@ public class PHPCommunicationManager : MonoBehaviour
         form.AddField("fileName", fileName);
         form.AddField("folderName", folderName);
 
-        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/savePassCount.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildType.ToString()+"/savePassCount.php", form));
     }
 
 
@@ -180,6 +183,6 @@ public class PHPCommunicationManager : MonoBehaviour
         form.AddField("pid", pid);
         form.AddField("code", generatedCode);
 
-        StartCoroutine(PostForm(SERVER + "/scripts/"+buildGender.ToString()+"/saveParticipantCode.php", form));
+        StartCoroutine(PostForm(SERVER + "/scripts/"+buildType.ToString()+"/saveParticipantCode.php", form));
     }
 }

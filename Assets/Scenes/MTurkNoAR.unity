@@ -800,7 +800,7 @@ PrefabInstance:
     - target: {fileID: 4347484713385386028, guid: 4cea1116db7f8fd43a787306dccc7870,
         type: 3}
       propertyPath: numberOfEvents
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4347484713385386028, guid: 4cea1116db7f8fd43a787306dccc7870,
         type: 3}
