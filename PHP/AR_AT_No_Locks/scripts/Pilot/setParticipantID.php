@@ -6,7 +6,11 @@
 		if(($file = fopen("../../files/Pilot/last_pid.csv","w")) !== FALSE){
 			fputcsv($file,array($pId));
 			fclose($file);
+		}else{
+			echo "error";
 		}
+	}else{
+		echo "error";
 	}
 	
 ?>

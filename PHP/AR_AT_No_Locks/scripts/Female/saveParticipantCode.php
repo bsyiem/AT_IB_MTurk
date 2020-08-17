@@ -7,5 +7,7 @@
 	if(($file = fopen("../../files/Female/".$fileName.".csv", "a")) !==FALSE){
 		fputcsv($file, array($pid,$code));
 		fclose($file);
+	}else{
+		echo "error";
 	}
 ?>

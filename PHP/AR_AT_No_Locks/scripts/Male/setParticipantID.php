@@ -7,6 +7,8 @@
 			fputcsv($file,array($pId));
 			fclose($file);
 		}
+	}else{
+		echo "error";
 	}
 	
 ?>

@@ -9,5 +9,7 @@
 	if(($file = fopen("../../files/Male/".$folderName."/".$fileName.".csv", "a")) !==FALSE){
 		fputcsv($file, array($passCount,$countType));
 		fclose($file);
+	}else{
+		echo "error";
 	}
 ?>

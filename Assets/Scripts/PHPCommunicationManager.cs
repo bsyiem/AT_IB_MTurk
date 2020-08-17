@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class PHPCommunicationManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PHPCommunicationManager : MonoBehaviour
     private static PHPCommunicationManager _instance;
 
     //private static string SERVER = "http://localhost/AR_AT";
-    private static string SERVER = "https://ar-attention.cis.unimelb.edu.au/";
+    private static string SERVER = "https://projects.eng.unimelb.edu.au/ar-attention";
 
 
     private void Awake()
@@ -125,10 +126,15 @@ public class PHPCommunicationManager : MonoBehaviour
             if (uwr.isNetworkError || uwr.isHttpError)
             {
                 Debug.Log(uwr.error);
+                SceneManager.LoadScene("MTurkError");
             }
             else
             {
                 Debug.Log(uwr.downloadHandler.text);
+                if(uwr.downloadHandler.text.Trim(' ').Equals("error"))
+                {
+                    SceneManager.LoadScene("MTurkError");
+                }
             }
         }
     }

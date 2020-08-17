@@ -22,6 +22,6 @@
 		}
 		fclose($file);
 	}else{
-		echo "Error: Please Reload Page";
+		echo "error";
 	}	
 ?>

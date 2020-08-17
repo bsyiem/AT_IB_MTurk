@@ -10,5 +10,7 @@
 	if(($file = fopen("../../files/Female/".$folderName."/".$fileName.".csv", "a")) !==FALSE){
 		fputcsv($file, array($ledNumber,$reactionTime,$reactionType));			
 		fclose($file);
+	}else{
+		echo "error";
 	}
 ?>
