@@ -22,7 +22,8 @@ public class CodeHandler : MonoBehaviour
 
         string generatedCode = MTurkSettings.SCREEN_CODE + "_" + this.settings.pId + "_" + randomCode.ToString();
 
-        this.closingText.text += "\nPlease note down this code: " + generatedCode;
+        this.closingText.text += "\nPlease note down this code: " + generatedCode +
+            "\nYou may close the browser after noting down the code.";
 
         this.commManager.sendCode(this.settings.pId, generatedCode);
     }

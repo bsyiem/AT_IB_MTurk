@@ -794,7 +794,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 200}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138802538
 MonoBehaviour:
@@ -831,7 +831,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Please enter fullscreen mode before pressing the "Begin" button.
 
-    (You can enter fullscren by pressing            located at the bottom right)'
+    (You can enter fullscren by pressing            located at the bottom right)
+
+
+    - Note that once you start, you cannot close your browser until you complete the
+    study else this attempt will not be registered. '
 --- !u!222 &2138802539
 CanvasRenderer:
   m_ObjectHideFlags: 0
