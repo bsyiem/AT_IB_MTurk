@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 0}
   zDist: 3
-  speed: 0.7
+  speed: 1
   pauseTime: 1.5
 --- !u!54 &1884911345436125400
 Rigidbody:
