@@ -8,7 +8,7 @@ public class InstructionController : MonoBehaviour
 
     //instruction for each condition
     private string trial = "The next level is a tutorial.\n\n" +
-        "- React to red lights by pressing the left mouse button as soon as you see them turn on.\n" +
+        "- React to red lights by pressing the LEFT MOUSE BUTTON as soon as you see them turn on.\n" +
         "- You can left click anywhere within the application (no need to bring pointer to the light).\n" +
         "- These red lights are marked by green circles for this tutorial only.\n"+
         "- The lights always appear in the same position for all levels.\n"+
