@@ -25,7 +25,9 @@ public class InstructionController : MonoBehaviour
         "- Try not to click the left mouse button when no lights are on.\n\n" +
         "Left click to continue.";
     private string pyy = "- This level contains some added elements.\n" +
-        "- You have to count the number of times the red sphere is passed (every time it leaves a cube counts as 1 pass).\n" +
+        "- You have to count the number of times the red sphere is passed.\n" +
+        "- Each time the sphere STOPS and then LEAVES a cube counts as 1 pass.\n" +
+        "- The sphere may pass through a cube without stopping, this does NOT count as a pass.\n" +
         "- It is crucial that you try to get the count correct as you will be asked to enter the count after this level.\n" +
         "- You also have to react to the red lights by clicking the left mouse button.\n\n" +
         "Left click to continue.";
@@ -38,7 +40,9 @@ public class InstructionController : MonoBehaviour
         "- Try not to click the left mouse button when no lights are on.\n\n" +
         "Left click to continue.";
     private string vyy = "- This level contains some added elements.\n" +
-        "- You have to count the number of times the red sphere is passed (every time it leaves a cube counts as 1 pass).\n" +
+        "- You have to count the number of times the red sphere is passed.\n" +
+        "- Each time the sphere STOPS and then LEAVES a cube counts as 1 pass.\n" +
+        "- The sphere may pass through a cube without stopping, this does NOT count as a pass.\n" +
         "- It is crucial that you try to get the count correct as you will be asked to enter the count after this level.\n" +
         "- You also have to react to the red lights by clicking the left mouse button.\n\n" +
         " Left click to continue.";
