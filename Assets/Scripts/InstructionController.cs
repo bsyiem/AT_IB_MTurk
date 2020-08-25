@@ -9,43 +9,52 @@ public class InstructionController : MonoBehaviour
     //instruction for each condition
     private string trial = "The next level is a tutorial.\n\n" +
         "- React to red lights by pressing the LEFT MOUSE BUTTON as soon as you see them turn on.\n" +
-        "- You can left click anywhere within the application (no need to bring pointer to the light).\n" +
+        "- You can left click anywhere WITHIN the application (no need to bring pointer to the light).\n" +
         "- These red lights are marked by green circles for this tutorial only.\n"+
         "- The lights always appear in the same position for all levels.\n"+
         "- These lights turn on at RANDOM INTERVALS.\n" +
         "- These lights may appear VISUALLY DIFFERENT in different levels.\n" +
         "- you have to react to ANY RED LIGHT turning on in all the levels\n\n"+
-        "Left click to continue";
+        //"Left click to continue";
+        "Press spacebar to continue";
 
-    private string pnn = "- React to the red lights turning on by clicking the left mouse button.\n" +
+    private string pnn = "- React to the red lights turning on by clicking the LEFT MOUSE button WITHIN the application.\n" +
         "- Try not to click the left mouse button when no lights are on.\n\n" +
-        " Left click to continue.";
+        //" Left click to continue.";
+        "Press spacebar to continue";
     private string pyn = "-This level contains some added elements.\n" +
-        "- You only have to react to the red lights by clicking the left mouse button.\n" +
+        "- You only have to react to the red lights by clicking the LEFT MOUSE button WITHIN the application.\n" +
         "- Try not to click the left mouse button when no lights are on.\n\n" +
-        "Left click to continue.";
+        //"Left click to continue.";
+        "Press spacebar to continue";
     private string pyy = "- This level contains some added elements.\n" +
         "- You have to count the number of times the red sphere is passed.\n" +
         "- Each time the sphere STOPS and then LEAVES a cube counts as 1 pass.\n" +
         "- The sphere may pass through a cube without stopping, this does NOT count as a pass.\n" +
         "- It is crucial that you try to get the count correct as you will be asked to enter the count after this level.\n" +
-        "- You also have to react to the red lights by clicking the left mouse button.\n\n" +
-        "Left click to continue.";
+        "- You also have to react to the red lights by clicking the LEFT MOUSE button WITHIN the application.\n" +
+        "- Try not to click the left mouse button when no lights are on.\n\n" +
+        //"Left click to continue.";
+        "Press spacebar to continue";
 
-    private string vnn = "- React to the red lights turning on by clicking the left mouse button.\n" +
+    private string vnn = "- React to the red lights turning on by clicking the LEFT MOUSE button WITHIN the application.\n" +
         "- Try not to click the left mouse button when no lights are on.\n\n" +
-        " Left click to continue.";
+        //" Left click to continue.";
+        "Press spacebar to continue";
     private string vyn = "- This level contains some added elements.\n" +
-        "- You only have to react to the red lights by clicking the left mouse button.\n" +
+        "- You only have to react to the red lights by clicking the LEFT MOUSE button WITHIN the application.\n" +
         "- Try not to click the left mouse button when no lights are on.\n\n" +
-        "Left click to continue.";
+        //"Left click to continue.";
+        "Press spacebar to continue";
     private string vyy = "- This level contains some added elements.\n" +
         "- You have to count the number of times the red sphere is passed.\n" +
         "- Each time the sphere STOPS and then LEAVES a cube counts as 1 pass.\n" +
         "- The sphere may pass through a cube without stopping, this does NOT count as a pass.\n" +
         "- It is crucial that you try to get the count correct as you will be asked to enter the count after this level.\n" +
-        "- You also have to react to the red lights by clicking the left mouse button.\n\n" +
-        " Left click to continue.";
+        "- You also have to react to the red lights by clicking the LEFT MOUSE button WITHIN the application.\n" +
+        "- Try not to click the left mouse button when no lights are on.\n\n" +
+        //" Left click to continue.";
+        "Press spacebar to continue";
 
     private MTurkSettings settings;
     private PHPCommunicationManager commManager;
@@ -175,7 +184,8 @@ public class InstructionController : MonoBehaviour
         switch (this.settings.currentScene)
         {
             case MTurkSettings.StudyScenes.OPN:
-                canvasText.text = "Left Click to read instructions for the next task.";
+                //canvasText.text = "Left Click to read instructions for the next task.";
+                canvasText.text = "Press the spacebar to read instructions for the next task.";
                 break;
             case MTurkSettings.StudyScenes.INS_1:
                 if (this.settings.startingEventType == "physicalEvent")
@@ -247,7 +257,8 @@ public class InstructionController : MonoBehaviour
         
     private void ProcessInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        //if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("space"))
         {
             switch (settings.currentScene)
             {
